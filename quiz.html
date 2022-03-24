@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css\quiz.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="timer">
+        </div>
+        <div class="score">
+            <div class="font">00</div>
+        </div>
+        <div class="quiz-content">Lorem ipsum dolor sit amet.</div>
+        <div class="start" onclick="count()"><button>get start</button></div>
+        <div class="wrapper">
+            <div class="upper">
+                <div class="box">
+                    <button>answer 1</button>
+                </div>
+                <div class="box">
+                    <button> answer 2</button>
+                </div>
+            </div>
+            <div class="below">
+                <div class="box">
+                    <button> answer 3</button>
+                </div>
+                <div class="box">
+                    <button> answer 4</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //Cho một số chạy từ 1 đến 100 bằng setInterval(). Hãy thể hiện sự tăng dần của số này thông qua một thanh tiến trình (progress bar)
+        function count() {
+            setInterval(function(e = 1) {
+                var contain = document.querySelector(".timer")
+                const para = document.createElement("div");
+                para.classList.add("bar");
+                contain.appendChild(para);
+                e++
+                if (e == 2) {
+                    let event = document.querySelector(".wrapper");
+                    event.classList.add("silde-ani");
+                    return;
+                }
+            }, 1000)
+
+
+        }
+    </script>
+</body>
+
+</html>

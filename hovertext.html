@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\feature.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--Viết chương trình tạo khi hover vào các thẻ span sẽ hiển thị tooltip có chứa nội dung là giá trị trong thuộc tính data-tooltip của thẻ span đó-->
+    <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown <span data-tooltip="this is tooltip 1" class="tooltip">printer</span> took
+        a galley of type and scrambled it to make a type specimen book. It has survived <span data-tooltip="this is tooltip 2" class="tooltip">not only
+            five</span> centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        <span data-tooltip="this is tooltip 3" class="tooltip">It was popularised<span class="tooltiptext"> This is
+                Tooltip 3</span></span> in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+    <!--thu lai khong chen class-->
+    <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown <span data-tooltip="this is tooltip 1">printer</span> took a galley of type
+        and scrambled it to make a type specimen book. It has survived <span data-tooltip="this is tooltip 2">not only
+            five</span> centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        <span class="this is tooltip 3">It was popularised<span id="tip3" class="tooltiptext"> This is
+                Tooltip 3</span></span> in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+
+
+</body>
+<script>
+    var tooltip1 = document.querySelector(".this is tooltip 3")
+    tooltip1.addEventListener("mouseover", function() {
+        document.getElementById("tip3").classList.add("tooltiptext_2");
+    })
+</script>
+
+</html>

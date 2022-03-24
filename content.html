@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css\feature.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--5.	Hãy tạo một trình xem dữ liệu như sau -->
+    <div class="container">
+        <div class="tittle">
+            <button id="cont-1" onclick="one()" value="off">
+                Content 1
+            </button>
+        </div>
+        <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quasi.
+        </div>
+    </div>
+    <div class="container">
+        <div class="tittle">
+            <button id="cont-2" onclick="two()">
+                Content 2
+            </button>
+        </div>
+        <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quasi.
+        </div>
+    </div>
+    <div class="container">
+        <div class="tittle">
+            <button id="cont-3" onclick="three()">
+                Content 3
+            </button>
+        </div>
+        <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quasi.
+        </div>
+    </div>
+</body>
+<script>
+    function one() {
+        if (document.getElementById("cont-1").value == "off") {
+            var number = document.querySelectorAll(".content");
+            number[0].classList.add("newclass");
+            document.getElementById("cont-1").value = "on";
+            if (document.getElementById("cont-2").value = "on") {
+                number[1].classList.remove("newclass");
+                document.getElementById("cont-2").value = "off"
+            }
+            if (document.getElementById("cont-3").value = "on") {
+                number[2].classList.remove("newclass");
+                document.getElementById("cont-3").value = "off"
+            }
+        } else {
+            var number = document.querySelectorAll(".content");
+            number[0].classList.remove("newclass");
+            document.getElementById("cont-1").value = "off"
+        }
+    }
+
+    function two() {
+        if (document.getElementById("cont-2").value == "off") {
+            var number = document.querySelectorAll(".content");
+            number[1].classList.add("newclass");
+            document.getElementById("cont-2").value = "on";
+            if (document.getElementById("cont-1").value = "on") {
+                number[0].classList.remove("newclass");
+                document.getElementById("cont-1").value = "off"
+            }
+            if (document.getElementById("cont-3").value = "on") {
+                number[2].classList.remove("newclass");
+                document.getElementById("cont-3").value = "off"
+            }
+        } else {
+            var number = document.querySelectorAll(".content");
+            number[1].classList.remove("newclass");
+            document.getElementById("cont-2").value = "off"
+        }
+        // var number = document.querySelectorAll(".content");
+        // number[1].classList.add("newclass")
+    }
+
+    function three() {
+        if (document.getElementById("cont-3").value == "off") {
+            var number = document.querySelectorAll(".content");
+            number[2].classList.add("newclass");
+            document.getElementById("cont-3").value = "on";
+            if (document.getElementById("cont-1").value = "on") {
+                number[0].classList.remove("newclass");
+                document.getElementById("cont-1").value = "off"
+            }
+            if (document.getElementById("cont-2").value = "on") {
+                number[1].classList.remove("newclass");
+                document.getElementById("cont-2").value = "off"
+            }
+        } else {
+            var number = document.querySelectorAll(".content");
+            number[2].classList.remove("newclass");
+            document.getElementById("cont-3").value = "off"
+        }
+        //var number = document.querySelectorAll(".content");
+        // number[2].classList.add("newclass")
+    }
+</script>
+
+</html>

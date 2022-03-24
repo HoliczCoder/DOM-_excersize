@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .newclass {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    </style>
+    <ul class="hello">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <div>
+        <ul class="second"></ul>
+        <ul></ul>
+    </div>
+    <!--bai 3-->
+    <div class="wrapper">
+        <div class="item" onclick="_copy()">
+            <ul>1</ul>
+            <ul>2</ul>
+            <ul>3</ul>
+            <ul>4</ul>
+        </div>
+        <div class="item">
+
+        </div>
+        <div class="item">
+        </div>
+    </div>
+    <button onclick="start()">click here</button>
+    <button onclick="start2()">click here too</button>
+</body>
+<script>
+    function start() {
+        document.querySelector("ul").setAttribute("class", "newclass")
+    }
+
+    // Khi nhấn vào nút copy hãy sao toán các thẻ li trong ul đầu tiên và đưa vào thẻ ul thứ hai trong thẻ div 
+    function start2() {
+        let value = document.querySelector("ul.hello").innerHTML;
+        console.log(value);
+        document.querySelector("ul.second").innerHTML = value
+    }
+    //Hãy viết code cho hàm _copy() để chuyển toàn bộ nội dung bên trong .item đầu tiên sang .item thứ ba
+    function _copy() {
+        let value = document.querySelector(".item").innerHTML;
+        console.log(value)
+        var item = document.querySelectorAll(".item");
+        item[2].innerHTML = value;
+    }
+</script>
+
+</html>

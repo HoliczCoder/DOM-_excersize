@@ -1,0 +1,82 @@
+.container {
+  width: 300px;
+}
+
+.container .tittle {
+  background-color: gray;
+  border: solid 1px black;
+}
+
+.container .content {
+  display: none;
+}
+
+.newclass {
+  display: block !important;
+  -webkit-animation-name: "slide";
+          animation-name: "slide";
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+
+@-webkit-keyframes slide {
+  0% {
+    display: none;
+  }
+  100% {
+    display: block !important;
+  }
+}
+
+@keyframes slide {
+  0% {
+    display: none;
+  }
+  100% {
+    display: block !important;
+  }
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -40px;
+  left: 0px;
+  right: 0px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip {
+  position: relative;
+  background-color: red;
+}
+
+.tooltiptext_2 {
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.thumb img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=feature.css.map */

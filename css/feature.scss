@@ -1,0 +1,69 @@
+    .container {
+        width: 300px;
+        .tittle {
+            background-color: gray;
+            border: solid 1px black;
+        }
+        .content {
+            display: none;
+        }
+    }
+    
+    .newclass {
+        display: block !important;
+        animation-name: "slide";
+        animation-duration: 1s;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes slide {
+        0% {
+            display: none;
+        }
+        100% {
+            display: block !important;
+        }
+    }
+    
+    .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: -40px;
+        left: 0px;
+        right: 0px;
+    }
+    
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+    
+    .tooltip {
+        position: relative;
+        background-color: red;
+    }
+    
+    .tooltiptext_2 {
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+    }
+    
+    // chỗ này là style cho bài 7, slicknew
+    .thumb {
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
