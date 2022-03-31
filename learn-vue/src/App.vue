@@ -6,6 +6,7 @@
     <div>{{ nameOfUser }}</div>
     <button @click="increaseNumber()">InNumber</button>
     <button @click="decreaseNumber()">DeNumber</button>
+   
   </div>
 </template>
 
@@ -15,13 +16,18 @@ export default {
   name: 'App',
   components: {},
   data() {
-    return {
-      monney: 10000,
-      message: 'test',
-      numberCounter: 10,
-      user: {
-        name: 'nguyen van A',
-        age: 20
+   return {
+      image: 'https://cdn.vjshop.vn/hightech/may-choi-game/ps5/sony-ps-5-1.jpg',
+      imageAlt: 'ps5 alt',
+      product: 'ps5',
+      productLink: 'https://bachtungps.com.vn/may-sony-playstation-5-ps5-1',
+      quantity: 10,
+      price: 10000,
+      discount: 0.2,
+      inStock: true,
+      classObject: {
+        'bg-green': true,
+        'bg-blue': false
       }
     }
   },
