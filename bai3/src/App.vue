@@ -13,6 +13,14 @@
      <div> {{item.publicDate}}</div>
      <div><img  :src=item.image></div> 
      </li>
+    <div>Hien thi san pham dat re</div>
+    <div v-for="item in products"  :key="item"  >
+    <div   v-if="item.price >= 4000">
+      <div> {{item.name}}</div> 
+     <div> {{item.price}}</div> 
+     <div> {{item.publicDate}}</div> 
+      </div>
+</div>
   </div>
 </template>
 
