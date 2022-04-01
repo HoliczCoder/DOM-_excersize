@@ -89,7 +89,7 @@ export default {
         if (this.addThisValue == "=") {
           this.secondNumber = this.cunrrentValue;
           alert("ket qua");
-          return this.secondNumber + this.firstNumber;
+          return parseInt(this.secondNumber) + parseInt(this.firstNumber);
         }
         this.firstNumber = this.cunrrentValue; //  khởi tạo số đầu tiên
         this.cunrrentValue = this.cunrrentValue + this.addThisValue;
