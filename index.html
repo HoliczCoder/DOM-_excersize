@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.common.dev.min.js"
+        integrity="sha512-TpgbLHXaTCAZ7ULhjopb1PveTz5Jx6KEQUtMfXhV0m0EArh+6O8ybZjjDN1Yug6oagN6iFm6EoMjuYSiFr0qXQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="(item, index) in products" :key="index">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6  col-sm-12">
+                        <div class="thumb"><img :src="item.image"></div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div> {{item.name}}</div>
+                        <div> {{item.price}}</div>
+                        <div> Describe: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, praesentium?
+                        </div>
+                        <div>Release Date: {{item.date}}</div>
+                        <div>choose color</div>
+                        <div class="color-wrapper">
+                            <button @click="checkColor" class="color color-1"></button>
+                            <button @click="checkColor" class="color color-2"></button>
+                            <button @click="checkColor" class="color color-3"></button>
+                            <button @click="checkColor" class="color color-4"></button>
+                        </div>
+                        <div :disabled='false'>Add to cart</div>
+                        <div>{{notifyStock}}</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: function () {
+                return {
+                    products: [
+                        { index: 0, name: "Cb650r", price: "2000", date: "", bestsale: true, brand: "Honda", image: "https://media.techz.vn/resize_x355x/media2019/source/1-Ve-bai-PR/honda/rebel/CB650R.jpg", color: ["red", "grey", "", ""], date: "02/02/2022" },
+                        { index: 1, name: "Mt09", price: "3000", date: "", bestsale: true, brand: "Yamaha", image: "https://media.vov.vn/sites/default/files/styles/large/public/2021-11/2022-yamaha-mt-09-storm-fluo-malaysia-12-e1636551266984-1200x1049.jpg", color: ["red", "", "black", ""], date: "02/02/2022" },
+                        { index: 2, name: "Z1000", price: "1500", date: "", bestsale: true, brand: "Kawasaki", image: "https://content2.kawasaki.com/ContentStorage/KMV/ProductTrimGroup/1006/057b8b61-5f54-48f4-af79-819b5dbec382.jpg?w=750", color: ["red", "", "", "blue"], date: "02/02/2022" },
+                        { index: 3, name: "Panigale", price: "5000", date: "", bestsale: true, brand: "Ducati", image: "./image/ducati.jpg", color: ["", "", "black", "blue"], date: "02/02/2022" }
+
+                    ],
+                    notifyStock: "",
+                    isDisabled: false
+
+                }
+            },
+            methods: {
+                checkColor(event) {
+                    const targetNode = event.target
+                    const arrayNode = targetNode.closest(".color-wrapper").querySelectorAll(".color")
+                    const arrayLength = arrayNode.length
+                    const fatherNode = targetNode.closest(".container")
+                    const arrayFather = document.querySelectorAll(".container")
+                    const arrayFatherLength = arrayFather.length
+                    for (let i = 0; i <= arrayFatherLength - 1; i++) {
+                        if (arrayFather[i] == fatherNode) {
+                            console.log(i)
+                            for (n = 0; n <= arrayLength - 1; n++) {
+                                if (arrayNode[n] == targetNode) {
+                                    console.log(n)
+                                    console.log(this.products[i].color[n])
+                                    const pickColor = this.products[i].color[n]
+                                    if (pickColor) {
+                                        console.log("hang nay con")
+                                        if (this.notifyStock) {
+                                            this.notifyStock = ""
+                                        }
+
+                                    }
+                                    else {
+                                        console.log("hang nay het")
+                                        this.notifyStock = "Out of Stock"
+
+
+                                    }
+                                    return
+                                }
+
+                            }
+
+                        }
+                    }
+                },
+                checkColor2(index) {
+                    console.log(index)
+
+
+                },
+            }
+        })
+    </script>
+    <style>
+        .thumb {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .color {
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+        }
+
+        .color-1 {
+            background-color: red;
+            border: none;
+        }
+
+        .color-2 {
+            background-color: grey;
+            border: none;
+        }
+
+        .color-3 {
+            background-color: black;
+            border: none;
+        }
+
+        .color-4 {
+            background-color: blue;
+            border: none;
+        }
+
+        .color-wrapper {
+            display: flex;
+
+        }
+    </style>
+</body>
+
+</html>
