@@ -1,19 +1,21 @@
+<script setup></script>
+
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-link :to="{ name: 'HomePage' }"> </router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+//import HomePage from "@/page/HomePage.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    //HomePage,
+  },
+  computed: {},
+};
 </script>
 
 <style>
@@ -23,6 +25,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+body {
+  background: black;
 }
 </style>
