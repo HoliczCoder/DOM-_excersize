@@ -1,15 +1,35 @@
 <template>
   <div>
     <div class="header flex flex-row justify-between bg-black">
-      <div><img class="w-20" src="new\src\assets\logo.png" /></div>
+      <div class="flex flex-row">
+        <div><img class="w-20" src="../assets/nike_symbol.png" /></div>
+        <router-link :to="{ name: 'UserProfile' }" class="flex items-center">
+          <div class="text-white text-xl px-2">User Profile</div>
+        </router-link>
+      </div>
       <div class="side-bar flex flex-row justify-center">
         <div class="m-2 text-white flex flex-row items-center">HOME</div>
         <div class="m-2 text-white flex flex-row items-center">DANH MỤC</div>
-        <div class="m-2 text-white flex flex-row items-center">ĐĂNG KÝ</div>
-        <div class="m-2 text-white flex flex-row items-center">ĐĂNG NHẬP</div>
-        <div class="m-2 text-white flex flex-row items-center">
-          <i class="fa-solid fa-cart-shopping"></i>
-        </div>
+        <router-link
+          :to="{ name: 'RegisterThis' }"
+          class="m-2 flex flex-row items-center"
+        >
+          <div class="m-2 text-white flex flex-row items-center">ĐĂNG KÝ</div>
+        </router-link>
+        <router-link
+          :to="{ name: 'LoginThis' }"
+          class="m-2 flex flex-row items-center"
+        >
+          <div class="m-2 text-white flex flex-row items-center">ĐĂNG NHẬP</div>
+        </router-link>
+        <router-link
+          :to="{ name: 'cart' }"
+          class="m-2 flex flex-row items-center"
+        >
+          <div class="m-2 text-white flex flex-row items-center">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+        </router-link>
       </div>
     </div>
     <div class="text-white flex flex-row text-2xl font-bold py-3">
@@ -198,6 +218,7 @@ export default {
       lastProduct: "",
       bestSale: "",
       soldSale: "",
+      cart: [],
     };
   },
   mounted() {
@@ -230,26 +251,28 @@ export default {
       console.log(reduceValue);
     },
     addToCart(item) {
+      let permitToPush = true;
       let quantity = document.getElementById(item.id).value;
       if (quantity <= 0) {
-        alert("hay chon so luong");
-        return;
+        quantity = 1;
       }
-      const _addToCart = (cart, item) => {
-        cart.push({
-          itemName: item.name,
-          itemPrice: item.price,
-          quantity,
-        });
-      };
+      //
+      this.cart.map((index) => {
+        if (index.productItem.id == item.id) {
+          index.productQuanity =
+            Number(quantity) + Number(index.productQuanity);
+          permitToPush = false;
+        }
+      });
 
-      let cart = localStorage.getItem("cart");
-      if (!cart) {
-        cart = [];
-        _addToCart(cart, item);
+      //
+      if (permitToPush) {
+        this.cart.push({
+          productItem: item,
+          productQuanity: quantity,
+        });
       }
-      localStorage.setItem("cart", JSON.stringify(cart));
-      this.cart = cart;
+      localStorage.setItem("thiscart", JSON.stringify(this.cart));
     },
   },
 };
