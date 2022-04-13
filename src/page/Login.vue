@@ -52,6 +52,7 @@ export default {
         this.$router.push({
           name: "Home",
         });
+        return;
       } catch (e) {
         console.log("dang nhap khong thanh cong");
       }

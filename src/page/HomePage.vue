@@ -264,7 +264,6 @@ export default {
           permitToPush = false;
         }
       });
-
       //
       if (permitToPush) {
         this.cart.push({
@@ -273,6 +272,7 @@ export default {
         });
       }
       localStorage.setItem("thiscart", JSON.stringify(this.cart));
+      alert("Product have been add to Cart");
     },
   },
 };
