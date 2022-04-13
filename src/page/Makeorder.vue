@@ -165,9 +165,9 @@ export default {
       this.totalPrice = this.totalItem;
       this.pushProduct = this.mapProduct;
       //console.log(this.product);
-      this.start1();
+      this.sendOrder();
     },
-    async start1() {
+    async sendOrder() {
       console.log(this.totalPrice);
       try {
         const response = await Axios.post("make-order", {
